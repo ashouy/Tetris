@@ -1,4 +1,4 @@
 package com.example.tetris.part
 
-class I: Part() {
+class I(pivo: Any) : Part(pivo) {
 }

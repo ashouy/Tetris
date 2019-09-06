@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="20sp"
+    tools:context="com.exemple.tetris.view.Menu">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:text="TETRIS"
+        android:textSize="24sp"
+        android:layout_marginVertical="20sp"/>
+
+    <Button
+        android:id="@+id/newGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NOVO JOGO"
+        android:textSize="24sp"
+        android:layout_marginVertical="20sp"
+        android:background="@android:color/transparent"
+        android:layout_gravity="center|bottom"/>
+    <Button
+        android:id="@+id/resumeGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Continuar"
+        android:layout_gravity="bottom|center"
+        android:background="@android:color/transparent"
+        android:textSize="24sp"
+        android:layout_marginVertical="20sp"/>
+    <Button
+        android:id="@+id/configGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Configurações"
+        android:layout_gravity="bottom|center"
+        android:background="@android:color/transparent"
+        android:textSize="24sp"
+        android:layout_marginVertical="20sp"/>
+
+
+
+</LinearLayout>
+
+
+
