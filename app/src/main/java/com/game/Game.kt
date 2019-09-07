@@ -4,6 +4,12 @@ import androidx.lifecycle.ViewModel
 
 class Game :ViewModel() {
 
+    var board = arrayOf(
+        intArrayOf(),
+        intArrayOf()
+    )
+
+    }
     fun startGame(){
     }
 
@@ -13,7 +19,6 @@ class Game :ViewModel() {
     fun resumeGame(){
     }
     fun configGame(){
-    }
-
-
 }
+
+
