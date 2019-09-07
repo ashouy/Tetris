@@ -6,6 +6,7 @@ import android.widget.GridLayout
 import android.widget.ImageView
 import androidx.lifecycle.ViewModelProviders
 import com.example.tetris.R
+import com.example.tetris.part.I
 import com.game.Game
 
 class Board : AppCompatActivity() {
@@ -23,7 +24,10 @@ class Board : AppCompatActivity() {
 
         val board = findViewById<GridLayout>(R.id.board)
 
+
+
         val gray = R.drawable.gray
+
 
 
 
