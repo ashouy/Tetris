@@ -1,20 +1,18 @@
 package com.example.tetris.part
 
-import androidx.lifecycle.ViewModel
-
-open class Part() : ViewModel(){
+abstract class Part( var x:Int, var y:Int){
 
 
-    var axis = arrayOf(intArrayOf())
+    var dot1 = Dot(x,y)
+    lateinit var dot2 :Dot
+    lateinit var dot3 :Dot
+    lateinit var dot4 :Dot
+    var state = false
+    abstract fun down()
 
-    var dime = arrayOf(
-        intArrayOf(),
-        intArrayOf()
-    )
+    abstract fun left()
 
+    abstract fun right()
 
-    fun rotate(){
-    }
-
-
+    abstract fun rotate()
 }

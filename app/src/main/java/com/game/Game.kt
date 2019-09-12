@@ -1,8 +1,8 @@
 package com.game
 
-import androidx.lifecycle.ViewModel
 
-class Game :ViewModel() {
+
+class Game(val LINHA: Int = 22,val COLUNA: Int = 12 ) {
 
     var board = arrayOf(
         intArrayOf(),
@@ -12,10 +12,8 @@ class Game :ViewModel() {
     }
     fun startGame(){
     }
-
     fun closeGame(){
     }
-
     fun resumeGame(){
     }
     fun configGame(){
