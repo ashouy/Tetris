@@ -13,16 +13,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center"
-
         android:layout_marginHorizontal="60sp"
         android:layout_marginTop="30sp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="Pontos" />
+            android:text="Pontos"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -35,11 +36,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="30sp"
+        android:layout_marginTop="20sp"
 
-        android:layout_marginBottom="100sp">
+        android:layout_marginBottom="10sp"
+        android:gravity="center">
 
         <Button
             android:layout_width="60dp"
@@ -50,8 +52,8 @@
 
         <GridLayout
             android:id="@+id/board"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginRight="60sp"
             android:layout_marginLeft="5sp"
@@ -67,6 +69,30 @@
                 app:srcCompat="@drawable/gray" />
         </GridLayout>
 
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginHorizontal="60sp"
+
+        android:layout_marginBottom="20sp"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="<"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text=">" />
 
     </LinearLayout>
 
