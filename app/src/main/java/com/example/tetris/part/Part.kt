@@ -8,6 +8,7 @@ abstract class Part( var x:Int, var y:Int){
     lateinit var dot3 :Dot
     lateinit var dot4 :Dot
     var state = false
+
     abstract fun down()
 
     abstract fun left()
