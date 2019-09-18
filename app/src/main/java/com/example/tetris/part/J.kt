@@ -1,19 +1,29 @@
 package com.example.tetris.part
 
 class J(x: Int, y: Int): Part(x, y) {
+
+    init {
+       // x = 5
+       // y = 5
+        dot1 = Dot(x,y)
+        dot2 = Dot(x,(y+1))
+        dot3 = Dot((x-1),y)
+        dot4 = Dot((x-2),y)
+    }
+
     override fun down() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun left() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun right() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun rotate() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 }
