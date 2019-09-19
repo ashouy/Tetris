@@ -4,7 +4,7 @@ import android.widget.ImageView
 
 
 class Game(val LINHA: Int = 22,val COLUNA: Int = 12 ) {
-    var level: Long = 300
+    var level = longArrayOf(150, 300, 450)
 
     var board = Array(LINHA) {
         Array(COLUNA){}

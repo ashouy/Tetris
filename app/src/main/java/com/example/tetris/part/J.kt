@@ -1,12 +1,11 @@
 package com.example.tetris.part
 
-class J(x: Int =3, y: Int = 5): Part(x, y) {
+class J(x: Int =2, y: Int = 5): Part(x, y) {
 
     init {
-       // x = 5
-       // y = 5
+
         dot1 = Dot(x,y)
-        dot2 = Dot(x,(y+1))
+        dot2 = Dot(x,(y-1))
         dot3 = Dot((x-1),y)
         dot4 = Dot((x-2),y)
     }
