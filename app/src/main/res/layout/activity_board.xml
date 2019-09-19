@@ -51,13 +51,9 @@
             android:layout_marginLeft="5sp"/>
 
         <GridLayout
-            android:id="@+id/board"
+            android:id="@+id/gridboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginRight="60sp"
-            android:layout_marginLeft="5sp"
-            android:background="@android:color/black"
 
             >
 
@@ -85,14 +81,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="<"
+            android:text="left"
             />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text=">" />
+            android:text="right" />
 
     </LinearLayout>
 
