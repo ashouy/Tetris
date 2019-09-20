@@ -17,11 +17,10 @@ class BoardActivity : AppCompatActivity() {
 
 
 
-    var running:Boolean=(true)
 
-    var j = J()
-    var l = L()
-    var o = O()
+
+
+
 
     var game = Game()
 
@@ -42,64 +41,87 @@ class BoardActivity : AppCompatActivity() {
             }
         }
 
-
+        game.running = true
         gameRun()
 
     }
 
 
-/*
-    fun onClick(v:View){
-        when(v.id){
-            R.id.btRotate->{
-                l.rotate()
-            }
-            R.id.btLeft->{
-                l.left()
-            }
-            R.id.btRight->{
-                l.right()
-            }
-        }
-    }*/
+
 
     private fun gameRun() {
         Thread{
-            while(running){
+            while(game.running){
                 Thread.sleep(game.level[2])
                 runOnUiThread{
 
-
-
-                    for (i in 0 until game.LINHA){
-                        for(j in 0 until game.COLUNA){
+                    for (i in 0 until game.LINHA) {
+                        for (j in 0 until game.COLUNA) {
+                            if(game.board[i][j] == 0)
                             game.boardView[i][j]!!.setImageResource(R.drawable.ciano)
                         }
                     }
 
-                    l.down()
+                    if (!baseBoardColision(o)){
+                        o.down()
+                    }else{
+                        updateBoard(o)
+                        newPart()
+                    }
+
+
                     btRotate.setOnClickListener {
-                        l.rotate()
+                        o.rotate()
                     }
                     btLeft.setOnClickListener {
-                        l.left()
+                        o.left()
                     }
 
                     btRight.setOnClickListener {
-                        l.right()
+                        o.right()
                     }
 
-                    try{
-                        game.boardView[l.dot1.x][l.dot1.y]!!.setImageResource(R.drawable.gray)
-                        game.boardView[l.dot2.x][l.dot2.y]!!.setImageResource(R.drawable.gray)
-                        game.boardView[l.dot3.x][l.dot3.y]!!.setImageResource(R.drawable.gray)
-                        game.boardView[l.dot4.x][l.dot4.y]!!.setImageResource(R.drawable.gray)
-                    }catch (e:ArrayIndexOutOfBoundsException){
-                        running = false
+                    try {
+                        game.boardView[o.dot1.x][o.dot1.y]!!.setImageResource(R.drawable.gray)
+                        game.boardView[o.dot2.x][o.dot2.y]!!.setImageResource(R.drawable.gray)
+                        game.boardView[o.dot3.x][o.dot3.y]!!.setImageResource(R.drawable.gray)
+                        game.boardView[o.dot4.x][o.dot4.y]!!.setImageResource(R.drawable.gray)
+                    } catch (e: ArrayIndexOutOfBoundsException) {
+                        game.running = false
                     }
                 }
+
+
             }
         }.start()
+    }
+
+    private fun updateBoard(obj: Part){
+        game.board[obj.dot1.x][obj.dot1.y] = 1
+        game.board[obj.dot2.x][obj.dot2.y] = 1
+        game.board[obj.dot3.x][obj.dot3.y] = 1
+        game.board[obj.dot4.x][obj.dot4.y] = 1
+    }
+    private fun colision(){
+
+    }
+    private fun baseBoardColision(obj: Part):Boolean{
+        return obj.dot1.x == 22 || obj.dot2.x == 22 || obj.dot3.x == 22 || obj.dot4.x == 22
+    }
+
+    private fun rightBoardColision(){
+
+    }
+
+    private fun leftBoardColision(){
+
+    }
+    private fun newPart(){
+
+    }
+    private fun startPart():Part{
+        o = O()
+        return o
     }
 
 
