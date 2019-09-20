@@ -4,14 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Layout
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.GridLayout
 import android.widget.ImageView
 import androidx.lifecycle.ViewModelProviders
 import com.example.tetris.R
-import com.example.tetris.part.I
-import com.example.tetris.part.J
-import com.example.tetris.part.L
-import com.example.tetris.part.Part
+import com.example.tetris.part.*
 import com.game.Game
 import kotlinx.android.synthetic.main.activity_board.*
 
@@ -23,6 +21,7 @@ class BoardActivity : AppCompatActivity() {
 
     var j = J()
     var l = L()
+    var o = O()
 
     var game = Game()
 
@@ -48,17 +47,47 @@ class BoardActivity : AppCompatActivity() {
 
     }
 
+
+/*
+    fun onClick(v:View){
+        when(v.id){
+            R.id.btRotate->{
+                l.rotate()
+            }
+            R.id.btLeft->{
+                l.left()
+            }
+            R.id.btRight->{
+                l.right()
+            }
+        }
+    }*/
+
     private fun gameRun() {
         Thread{
             while(running){
                 Thread.sleep(game.level[2])
                 runOnUiThread{
+
+
+
                     for (i in 0 until game.LINHA){
                         for(j in 0 until game.COLUNA){
                             game.boardView[i][j]!!.setImageResource(R.drawable.ciano)
                         }
                     }
+
                     l.down()
+                    btRotate.setOnClickListener {
+                        l.rotate()
+                    }
+                    btLeft.setOnClickListener {
+                        l.left()
+                    }
+
+                    btRight.setOnClickListener {
+                        l.right()
+                    }
 
                     try{
                         game.boardView[l.dot1.x][l.dot1.y]!!.setImageResource(R.drawable.gray)

@@ -10,21 +10,40 @@ class Z(x: Int, y: Int): Part(x, y) {
     }
 
     override fun down() {
-        dot1.x +=1
-        dot2.x +=1
-        dot3.x +=1
-        dot4.x +=1
+        dot1.down()
+        dot2.down()
+        dot3.down()
+        dot4.down()
     }
 
     override fun left() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        dot1.y -= 1
+        dot2.y -= 1
+        dot3.y -= 1
+        dot4.y -= 1
     }
 
     override fun right() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        dot1.y += 1
+        dot2.y += 1
+        dot3.y += 1
+        dot4.y += 1
     }
 
     override fun rotate() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        if (state)
+        {
+            dot2 = Dot((dot1.x+1),(dot1.y))
+            dot3 = Dot((dot1.x),(dot1.y+1))
+            dot4 = Dot((dot1.x-1),(dot1.y+1))
+
+            state = false
+        }else{
+            dot2 = Dot((dot1.x),(dot1.y+1))
+            dot3 = Dot((dot1.x-1),(dot1.y))
+            dot4 = Dot((dot1.x-1),(dot1.y-1))
+
+            state = true
+        }
     }
 }

@@ -11,18 +11,27 @@ class O(x: Int = 1, y: Int = 5): Part(x, y) {
     }
 
     override fun down() {
-        dot1.x +=1
-        dot2.x +=1
-        dot3.x +=1
-        dot4.x +=1
+        dot1.down()
+        dot2.down()
+        dot3.down()
+        dot4.down()
     }
 
     override fun left() {
+        dot1.y -= 1
+        dot2.y -= 1
+        dot3.y -= 1
+        dot4.y -= 1
     }
 
     override fun right() {
+        dot1.y += 1
+        dot2.y += 1
+        dot3.y += 1
+        dot4.y += 1
     }
 
     override fun rotate() {
+
     }
 }
