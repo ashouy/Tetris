@@ -1,6 +1,6 @@
 package com.example.tetris.part
 
-class Z(x: Int, y: Int): Part(x, y) {
+class Z(x: Int = 5, y: Int = 1): Part(x, y) {
 
     init {
         dot1 = Dot(x,y)

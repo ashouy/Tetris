@@ -12,14 +12,9 @@ import com.example.tetris.R
 import com.example.tetris.part.*
 import com.game.Game
 import kotlinx.android.synthetic.main.activity_board.*
+import kotlin.random.Random
 
 class BoardActivity : AppCompatActivity() {
-
-
-
-
-
-
 
 
     var game = Game()
@@ -41,7 +36,6 @@ class BoardActivity : AppCompatActivity() {
             }
         }
 
-        game.running = true
         gameRun()
 
     }
@@ -57,17 +51,14 @@ class BoardActivity : AppCompatActivity() {
 
                     for (i in 0 until game.LINHA) {
                         for (j in 0 until game.COLUNA) {
-                            if(game.board[i][j] == 0)
-                            game.boardView[i][j]!!.setImageResource(R.drawable.ciano)
+                            if(game.board[i][j] == 0) {
+                                game.boardView[i][j]!!.setImageResource(R.drawable.ciano)
+                            }else{
+                                game.boardView[i][j]!!.setImageResource(R.drawable.gray)
+                            }
                         }
                     }
 
-                    if (!baseBoardColision(o)){
-                        o.down()
-                    }else{
-                        updateBoard(o)
-                        newPart()
-                    }
 
 
                     btRotate.setOnClickListener {
@@ -102,26 +93,92 @@ class BoardActivity : AppCompatActivity() {
         game.board[obj.dot3.x][obj.dot3.y] = 1
         game.board[obj.dot4.x][obj.dot4.y] = 1
     }
-    private fun colision(){
+    private fun colision(obj : Part):Boolean{
 
     }
     private fun baseBoardColision(obj: Part):Boolean{
         return obj.dot1.x == 22 || obj.dot2.x == 22 || obj.dot3.x == 22 || obj.dot4.x == 22
     }
 
-    private fun rightBoardColision(){
+    private fun rightBoardColision(obj : Part):Boolean{
+        return obj.dot1.y == 12 || obj.dot2.y == 12 || obj.dot3.y == 12 || obj.dot4.y == 12
+    }
+
+    private fun leftBoardColision(obj : Part):Boolean{
+        return obj.dot1.y == 0 || obj.dot2.y == 0 || obj.dot3.y == 0 || obj.dot4.y == 0
 
     }
 
-    private fun leftBoardColision(){
+    private fun newPart(): Part {
+        var p = Random.nextInt(0,5)
 
+        when(p){
+            0->{
+                var i = I()
+                return i
+            }
+            1->{
+                var j = J()
+                return j
+            }
+            2->{
+                var l = L()
+                return l
+            }
+            3->{
+                var o = O()
+                return o
+            }
+            4->{
+                var s = S()
+                return s
+            }
+            5->{
+                var t = T()
+                return t
+            }
+            else ->{
+                var z = Z()
+                return z
+            }
+        }
     }
-    private fun newPart(){
 
     }
     private fun startPart():Part{
-        o = O()
-        return o
+
+        var p = Random.nextInt(0,5)
+
+        when(p){
+            0->{
+               var i = I()
+                return i
+            }
+            1->{
+                var j = J()
+                return j
+            }
+            2->{
+                var l = L()
+                return l
+            }
+            3->{
+                var o = O()
+                return o
+            }
+            4->{
+                var s = S()
+                return s
+            }
+            5->{
+                var t = T()
+                return t
+            }
+            else ->{
+                var z = Z()
+                return z
+            }
+        }
     }
 
 
