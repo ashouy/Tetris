@@ -69,16 +69,18 @@ class BoardActivity : AppCompatActivity() {
                             }
 
                             btLeft.setOnClickListener {
+                                if(!leftBoardColision(p))
                                 p.left()
                             }
 
                             btRight.setOnClickListener {
+                                if(!rightBoardColision(p))
                                 p.right()
                             }
 
 
 
-                            if(!baseBoardColision(p)){
+                            if(!baseBoardColision(p) && !colision(p)){
                                 p.down()
                             }else{
                                 updateBoard(p)
@@ -113,19 +115,22 @@ class BoardActivity : AppCompatActivity() {
     /*
     Retorna Verdadeiro caso um ponto da peça encoste em algum "1"
      */
-    //private fun colision(obj : Part):Boolean{
-    //}
+    private fun colision(obj : Part):Boolean{
+
+            return game.board[obj.dot1.x +1][obj.dot1.y] == 1 || game.board[obj.dot2.x +1][obj.dot2.y] == 1
+                    || game.board[obj.dot3.x +1][obj.dot3.y] == 1 || game.board[obj.dot4.x +1][obj.dot4.y] == 1
+    }
     /*
     retorna verdadeiro caso algum ponto da peça atinja a linha 22(última linha do board)
      */
     private fun baseBoardColision(obj: Part):Boolean{
-        return obj.dot1.x == 22 || obj.dot2.x == 22 || obj.dot3.x == 22 || obj.dot4.x == 22
+        return obj.dot1.x == 21 || obj.dot2.x == 21 || obj.dot3.x == 21 || obj.dot4.x == 21
     }
     /*
     retorna verdadeiro caso algum ponto atinja a borda direita do board
      */
     private fun rightBoardColision(obj : Part):Boolean{
-        return obj.dot1.y == 12 || obj.dot2.y == 12 || obj.dot3.y == 12 || obj.dot4.y == 12
+        return obj.dot1.y == 11 || obj.dot2.y == 11 || obj.dot3.y == 11 || obj.dot4.y == 11
     }
     /*
     retorna verdadeiro caso algum ponto atinja a borda esquerda do board
@@ -170,6 +175,13 @@ class BoardActivity : AppCompatActivity() {
                 return z
             }
         }
+    }
+
+    /*
+        condiciona peça para rotação
+     */
+    private fun letRotation(){
+
     }
 
 }
