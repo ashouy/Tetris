@@ -19,7 +19,7 @@ class BoardActivity : AppCompatActivity() {
 
     var game = Game()
 
-
+    var p = newPart()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_board)
@@ -45,41 +45,55 @@ class BoardActivity : AppCompatActivity() {
 
     private fun gameRun() {
         Thread{
+
             while(game.running){
                 Thread.sleep(game.level[2])
-                runOnUiThread{
+                runOnUiThread {
 
-                    for (i in 0 until game.LINHA) {
-                        for (j in 0 until game.COLUNA) {
-                            if(game.board[i][j] == 0) {
-                                game.boardView[i][j]!!.setImageResource(R.drawable.ciano)
-                            }else{
-                                game.boardView[i][j]!!.setImageResource(R.drawable.gray)
+
+                            /*
+                            redesenha o board
+                             */
+                            for (i in 0 until game.LINHA) {
+                                for (j in 0 until game.COLUNA) {
+                                    if (game.board[i][j] == 0) {
+                                        game.boardView[i][j]!!.setImageResource(R.drawable.ciano)
+                                    } else {
+                                        game.boardView[i][j]!!.setImageResource(R.drawable.gray)
+                                    }
+                                }
                             }
-                        }
-                    }
+
+                            btRotate.setOnClickListener {
+                                p.rotate()
+                            }
+
+                            btLeft.setOnClickListener {
+                                p.left()
+                            }
+
+                            btRight.setOnClickListener {
+                                p.right()
+                            }
 
 
 
-                    btRotate.setOnClickListener {
-                        o.rotate()
-                    }
-                    btLeft.setOnClickListener {
-                        o.left()
-                    }
+                            if(!baseBoardColision(p)){
+                                p.down()
+                            }else{
+                                updateBoard(p)
+                                p = newPart()
+                            }
 
-                    btRight.setOnClickListener {
-                        o.right()
-                    }
+                            try {
+                                game.boardView[p.dot1.x][p.dot1.y]!!.setImageResource(R.drawable.gray)
+                                game.boardView[p.dot2.x][p.dot2.y]!!.setImageResource(R.drawable.gray)
+                                game.boardView[p.dot3.x][p.dot3.y]!!.setImageResource(R.drawable.gray)
+                                game.boardView[p.dot4.x][p.dot4.y]!!.setImageResource(R.drawable.gray)
+                            } catch (e: ArrayIndexOutOfBoundsException) {
+                                game.running = false
+                            }
 
-                    try {
-                        game.boardView[o.dot1.x][o.dot1.y]!!.setImageResource(R.drawable.gray)
-                        game.boardView[o.dot2.x][o.dot2.y]!!.setImageResource(R.drawable.gray)
-                        game.boardView[o.dot3.x][o.dot3.y]!!.setImageResource(R.drawable.gray)
-                        game.boardView[o.dot4.x][o.dot4.y]!!.setImageResource(R.drawable.gray)
-                    } catch (e: ArrayIndexOutOfBoundsException) {
-                        game.running = false
-                    }
                 }
 
 
@@ -87,28 +101,42 @@ class BoardActivity : AppCompatActivity() {
         }.start()
     }
 
+    /*
+    Marcar 1 no board nas coordenadas da peça
+     */
     private fun updateBoard(obj: Part){
         game.board[obj.dot1.x][obj.dot1.y] = 1
         game.board[obj.dot2.x][obj.dot2.y] = 1
         game.board[obj.dot3.x][obj.dot3.y] = 1
         game.board[obj.dot4.x][obj.dot4.y] = 1
-    }
-    private fun colision(obj : Part):Boolean{
-
-    }
+        }
+    /*
+    Retorna Verdadeiro caso um ponto da peça encoste em algum "1"
+     */
+    //private fun colision(obj : Part):Boolean{
+    //}
+    /*
+    retorna verdadeiro caso algum ponto da peça atinja a linha 22(última linha do board)
+     */
     private fun baseBoardColision(obj: Part):Boolean{
         return obj.dot1.x == 22 || obj.dot2.x == 22 || obj.dot3.x == 22 || obj.dot4.x == 22
     }
-
+    /*
+    retorna verdadeiro caso algum ponto atinja a borda direita do board
+     */
     private fun rightBoardColision(obj : Part):Boolean{
         return obj.dot1.y == 12 || obj.dot2.y == 12 || obj.dot3.y == 12 || obj.dot4.y == 12
     }
-
+    /*
+    retorna verdadeiro caso algum ponto atinja a borda esquerda do board
+     */
     private fun leftBoardColision(obj : Part):Boolean{
         return obj.dot1.y == 0 || obj.dot2.y == 0 || obj.dot3.y == 0 || obj.dot4.y == 0
 
     }
-
+    /*
+    retorna uma nova peça aleatória
+     */
     private fun newPart(): Part {
         var p = Random.nextInt(0,5)
 
@@ -143,43 +171,5 @@ class BoardActivity : AppCompatActivity() {
             }
         }
     }
-
-    }
-    private fun startPart():Part{
-
-        var p = Random.nextInt(0,5)
-
-        when(p){
-            0->{
-               var i = I()
-                return i
-            }
-            1->{
-                var j = J()
-                return j
-            }
-            2->{
-                var l = L()
-                return l
-            }
-            3->{
-                var o = O()
-                return o
-            }
-            4->{
-                var s = S()
-                return s
-            }
-            5->{
-                var t = T()
-                return t
-            }
-            else ->{
-                var z = Z()
-                return z
-            }
-        }
-    }
-
 
 }
