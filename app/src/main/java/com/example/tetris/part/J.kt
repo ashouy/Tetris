@@ -1,6 +1,6 @@
 package com.example.tetris.part
 
-class J(x: Int =2, y: Int = 5): Part(x, y) {
+class J(x: Int =2, y: Int = 5): Part(x, y, minSpace = 2) {
 
     init {
 

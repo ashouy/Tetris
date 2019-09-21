@@ -1,6 +1,11 @@
 package com.example.tetris.part
 
 abstract class Part( var x:Int, var y:Int){
+    var minSpace: Int = 0
+
+    constructor(x: Int,y: Int,minSpace: Int):this(x,y){
+        this.minSpace = minSpace
+    }
 
 
     var dot1 = Dot(x,y)
@@ -8,7 +13,9 @@ abstract class Part( var x:Int, var y:Int){
     lateinit var dot3 :Dot
     lateinit var dot4 :Dot
 
+
     var state = true
+
 
     abstract fun down()
 

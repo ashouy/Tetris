@@ -2,12 +2,8 @@ package com.exemple.tetris.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Layout
 import android.view.LayoutInflater
-import android.view.View
-import android.widget.GridLayout
 import android.widget.ImageView
-import androidx.lifecycle.ViewModelProviders
 import com.example.tetris.R
 import com.example.tetris.part.*
 import com.game.Game
@@ -65,7 +61,7 @@ class BoardActivity : AppCompatActivity() {
                             }
 
                             btRotate.setOnClickListener {
-                                p.rotate()
+                                letRotation()
                             }
 
                             btLeft.setOnClickListener {
@@ -182,6 +178,13 @@ class BoardActivity : AppCompatActivity() {
      */
     private fun letRotation(){
 
+        while( p.dot1.y < p.minSpace || p.dot1.y > (game.COLUNA-1)-p.minSpace) {
+            if(p.dot1.y < p.minSpace)
+                p.right()
+            else
+                p.left()
+        }
+        p.rotate()
     }
 
 }

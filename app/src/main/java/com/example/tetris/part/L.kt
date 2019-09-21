@@ -1,6 +1,6 @@
 package com.example.tetris.part
 
-class L(x: Int = 2, y: Int = 5): Part(x, y) {
+class L(x: Int = 2, y: Int = 5): Part(x, y, minSpace = 1) {
 
 
     init {
