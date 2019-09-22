@@ -61,16 +61,16 @@ class BoardActivity : AppCompatActivity() {
                             }
 
                             btRotate.setOnClickListener {
-                                letRotation()
+                                letRotation(p)
                             }
 
                             btLeft.setOnClickListener {
-                                if(!leftBoardColision(p))
+                                if(!leftBoardColision(p) && !colisionLeft(p))
                                 p.left()
                             }
 
                             btRight.setOnClickListener {
-                                if(!rightBoardColision(p))
+                                if(!rightBoardColision(p) && !colisionRight(p))
                                 p.right()
                             }
 
@@ -112,9 +112,19 @@ class BoardActivity : AppCompatActivity() {
     Retorna Verdadeiro caso um ponto da peça encoste em algum "1"
      */
     private fun colision(obj : Part):Boolean{
-
-            return game.board[obj.dot1.x +1][obj.dot1.y] == 1 || game.board[obj.dot2.x +1][obj.dot2.y] == 1
+            return     game.board[obj.dot1.x +1][obj.dot1.y] == 1 || game.board[obj.dot2.x +1][obj.dot2.y] == 1
                     || game.board[obj.dot3.x +1][obj.dot3.y] == 1 || game.board[obj.dot4.x +1][obj.dot4.y] == 1
+
+    }
+
+    private fun colisionRight(obj : Part):Boolean{
+        return game.board[obj.dot1.x][obj.dot1.y+1] == 1 || game.board[obj.dot2.x][obj.dot2.y+1] == 1
+                || game.board[obj.dot3.x][obj.dot3.y+1] == 1 || game.board[obj.dot4.x][obj.dot4.y+1] == 1
+    }
+
+    private fun colisionLeft(obj : Part):Boolean{
+        return  game.board[obj.dot1.x][obj.dot1.y-1] == 1 || game.board[obj.dot2.x][obj.dot2.y-1] == 1
+                || game.board[obj.dot3.x][obj.dot3.y-1] == 1 || game.board[obj.dot4.x][obj.dot4.y-1] == 1
     }
     /*
     retorna verdadeiro caso algum ponto da peça atinja a linha 22(última linha do board)
@@ -176,15 +186,26 @@ class BoardActivity : AppCompatActivity() {
     /*
         condiciona peça para rotação
      */
-    private fun letRotation(){
+    private fun letRotation(obj : Part){
 
-        while( p.dot1.y < p.minSpace || p.dot1.y > (game.COLUNA-1)-p.minSpace) {
-            if(p.dot1.y < p.minSpace)
-                p.right()
-            else
-                p.left()
+        while (obj.dot1.y < obj.minSpace || obj.dot1.y > (game.COLUNA - 1) - obj.minSpace){
+                if (obj.dot1.y < obj.minSpace) {
+                    obj.right()
+                }
+                else {
+                    obj.left()
+                }
         }
-        p.rotate()
+        obj.rotate()
+        if(game.board[obj.dot1.x][obj.dot1.y] == 1 || game.board[obj.dot2.x][obj.dot2.y] == 1 ||
+            game.board[obj.dot3.x][obj.dot3.y] == 1 || game.board[obj.dot4.x][obj.dot4.y] == 1){
+            return
+        }
+        else{
+            p = obj
+            return
+        }
+
     }
 
 }

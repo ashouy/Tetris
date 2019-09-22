@@ -4,8 +4,8 @@ class T(x: Int = 1, y: Int = 5):Part(x, y, minSpace = 1) {
     init {
         dot1 = Dot(x,y)
         dot2 = Dot((x+1),y)
-        dot3 = Dot(x,(y+1))
-        dot4 = Dot(x,(y-1))
+        dot3 = Dot(x,(y-1))
+        dot4 = Dot(x,(y+1))
     }
 
     override fun down() {
@@ -39,8 +39,8 @@ class T(x: Int = 1, y: Int = 5):Part(x, y, minSpace = 1) {
             state = false
         }else{
             dot2 = Dot((dot1.x+1),(dot1.y))
-            dot3 = Dot((dot1.x),(dot1.y+1))
-            dot4 = Dot((dot1.x),(dot1.y-1))
+            dot3 = Dot((dot1.x),(dot1.y-1))
+            dot4 = Dot((dot1.x),(dot1.y+1))
 
             state = true
         }
