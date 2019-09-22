@@ -149,7 +149,7 @@ class BoardActivity : AppCompatActivity() {
     retorna uma nova peça aleatória
      */
     private fun newPart(): Part {
-        var p = Random.nextInt(0,5)
+        var p = Random.nextInt(0,7)
 
         when(p){
             0->{
@@ -196,15 +196,23 @@ class BoardActivity : AppCompatActivity() {
                     obj.left()
                 }
         }
+
+        var aux1 = Dot(obj.dot1.x,obj.dot1.y)
+        var aux2 = Dot(obj.dot2.x,obj.dot2.y)
+        var aux3 = Dot(obj.dot3.x,obj.dot3.y)
+        var aux4 = Dot(obj.dot4.x,obj.dot4.y)
+
         obj.rotate()
+
         if(game.board[obj.dot1.x][obj.dot1.y] == 1 || game.board[obj.dot2.x][obj.dot2.y] == 1 ||
             game.board[obj.dot3.x][obj.dot3.y] == 1 || game.board[obj.dot4.x][obj.dot4.y] == 1){
+            obj.dot1 = aux1
+            obj.dot2 = aux2
+            obj.dot3 = aux3
+            obj.dot4 = aux4
             return
         }
-        else{
-            p = obj
-            return
-        }
+
 
     }
 

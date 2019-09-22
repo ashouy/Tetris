@@ -1,6 +1,6 @@
 package com.example.tetris.part
 
-class L(x: Int = 2, y: Int = 5): Part(x, y, minSpace = 1) {
+class L(x: Int = 2, y: Int = 5): Part(x, y, minSpace = 2) {
 
 
     init {
@@ -34,7 +34,7 @@ class L(x: Int = 2, y: Int = 5): Part(x, y, minSpace = 1) {
 
     override fun rotate() {
         if (state){
-            dot2 = Dot((dot1.x-1),(dot1.y))
+            dot2 = Dot((dot1.x+1),(dot1.y))
             dot3 = Dot((dot1.x),(dot1.y+1))
             dot4 = Dot((dot1.x),(dot1.y+2))
 

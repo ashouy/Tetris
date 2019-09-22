@@ -38,9 +38,9 @@ class S(x: Int= 1, y: Int = 5): Part(x, y, minSpace = 1) {
 
             state = false
         }else{
-            dot2 = Dot((dot1.x),(dot1.y+1))
+            dot2 = Dot((dot1.x),(dot1.y-1))
             dot3 = Dot((dot1.x-1),(dot1.y))
-            dot4 = Dot((dot1.x-1),(dot1.y-1))
+            dot4 = Dot((dot1.x-1),(dot1.y+1))
 
             state = true
         }    }
