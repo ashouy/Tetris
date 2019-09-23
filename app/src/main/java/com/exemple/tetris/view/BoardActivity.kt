@@ -32,6 +32,7 @@ class BoardActivity : AppCompatActivity() {
             }
         }
 
+
         gameRun()
 
     }
@@ -46,6 +47,7 @@ class BoardActivity : AppCompatActivity() {
                 Thread.sleep(game.level[2])
                 runOnUiThread {
 
+                            pontuacao.text = game.score.toString()
                             reDrawBoard()
 
                             btRotate.setOnClickListener {
@@ -61,7 +63,8 @@ class BoardActivity : AppCompatActivity() {
                                 if(!rightBoardColision(p) && !colisionRight(p))
                                 p.right()
                             }
-
+                            speed.setOnClickListener {
+                            }
 
                             if(!baseBoardColision(p) && !colision(p)){
                                 p.down()
@@ -232,7 +235,7 @@ class BoardActivity : AppCompatActivity() {
                     cont++
                 }
                 if(cont == (game.COLUNA)){
-                    game.score += 10
+                    game.incrementScore()
                     downBoard(i)
                 }
             }
@@ -240,7 +243,6 @@ class BoardActivity : AppCompatActivity() {
     }
 
     private fun downBoard(linha: Int) {
-
         for(i in linha downTo 1){
             game.board[i] = game.board[i -1]
         }

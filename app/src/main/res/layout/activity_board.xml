@@ -22,8 +22,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="Pontos"
-            />
+            android:text="Pontos" />
+        <TextView
+            android:id="@+id/pontuacao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -43,12 +46,14 @@
         android:layout_marginBottom="10sp"
         android:gravity="center">
 
-        <Button
+        <ImageButton
+            android:id="@+id/pause"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="Pause"
-            android:layout_marginLeft="5sp"/>
+            android:src="@drawable/pause"
+            android:layout_marginLeft="5sp"
+            android:backgroundTint="@android:color/transparent"/>
 
         <GridLayout
             android:id="@+id/gridboard"
@@ -64,33 +69,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
-        android:layout_marginHorizontal="60sp"
-
+        android:layout_marginHorizontal="30sp"
+        android:gravity="center"
         android:layout_marginBottom="20sp"
         android:orientation="horizontal">
 
-        <Button
+        <ImageButton
             android:id="@+id/btLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="left"
-            />
+            android:src="@drawable/left"
+            android:backgroundTint="@android:color/transparent"/>
 
         <Button
-            android:id="@+id/btRotate"
+            android:id="@+id/speed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="rotate"
-            />
+            android:layout_gravity="bottom"
+            android:text="TurboLento"
+            android:textColor="#448BFA"
+            android:backgroundTint="#D4E1F4"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/btRight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text="right"
-            />
+            android:src="@drawable/right"
+            android:backgroundTint="@android:color/transparent"/>
+
+        <ImageButton
+            android:id="@+id/btRotate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:src="@drawable/rotate"
+            android:backgroundTint="@android:color/transparent"/>
 
     </LinearLayout>
 

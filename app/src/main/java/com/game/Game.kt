@@ -14,6 +14,10 @@ class Game(val LINHA: Int = 22,val COLUNA: Int = 12 ) {
     }
     var score :Int = 0
 
+    fun incrementScore(){
+        score += 10
+    }
+
     fun closeGame() {
     }
 
