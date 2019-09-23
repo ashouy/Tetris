@@ -46,19 +46,7 @@ class BoardActivity : AppCompatActivity() {
                 Thread.sleep(game.level[2])
                 runOnUiThread {
 
-
-                            /*
-                            redesenha o board
-                             */
-                            for (i in 0 until game.LINHA) {
-                                for (j in 0 until game.COLUNA) {
-                                    if (game.board[i][j] == 0) {
-                                        game.boardView[i][j]!!.setImageResource(R.drawable.ciano)
-                                    } else {
-                                        game.boardView[i][j]!!.setImageResource(R.drawable.gray)
-                                    }
-                                }
-                            }
+                            reDrawBoard()
 
                             btRotate.setOnClickListener {
                                 letRotation(p)
@@ -75,11 +63,12 @@ class BoardActivity : AppCompatActivity() {
                             }
 
 
-
                             if(!baseBoardColision(p) && !colision(p)){
                                 p.down()
                             }else{
                                 updateBoard(p)
+                                makePoint()
+
                                 p = newPart()
                             }
 
@@ -143,7 +132,6 @@ class BoardActivity : AppCompatActivity() {
      */
     private fun leftBoardColision(obj : Part):Boolean{
         return obj.dot1.y == 0 || obj.dot2.y == 0 || obj.dot3.y == 0 || obj.dot4.y == 0
-
     }
     /*
     retorna uma nova peça aleatória
@@ -216,4 +204,45 @@ class BoardActivity : AppCompatActivity() {
 
     }
 
+    /*
+    redenha o board
+     */
+    private fun reDrawBoard(){
+        for (i in 0 until game.LINHA) {
+            for (j in 0 until game.COLUNA) {
+                if (game.board[i][j] == 0) {
+                    game.boardView[i][j]!!.setImageResource(R.drawable.ciano)
+                } else {
+                    game.boardView[i][j]!!.setImageResource(R.drawable.gray)
+                }
+            }
+        }
+    }
+    /*
+    limpa uma linha interia caso ela estja completa por '1'
+    */
+    private fun makePoint(){
+        var cont: Int
+
+        for (i in 0 until game.LINHA){
+            cont = 0
+            for (j in 0 until game.COLUNA){
+
+                if(game.board[i][j] == 1){
+                    cont++
+                }
+                if(cont == (game.COLUNA)){
+                    game.score += 10
+                    downBoard(i)
+                }
+            }
+        }
+    }
+
+    private fun downBoard(linha: Int) {
+
+        for(i in linha downTo 1){
+            game.board[i] = game.board[i -1]
+        }
+    }
 }
