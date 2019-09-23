@@ -51,7 +51,7 @@ class BoardActivity : AppCompatActivity() {
                             reDrawBoard()
 
                             btRotate.setOnClickListener {
-                                letRotation(p)
+                            letRotation(p)
                             }
 
                             btLeft.setOnClickListener {
@@ -71,7 +71,6 @@ class BoardActivity : AppCompatActivity() {
                             }else{
                                 updateBoard(p)
                                 makePoint()
-
                                 p = newPart()
                             }
 
@@ -83,7 +82,6 @@ class BoardActivity : AppCompatActivity() {
                             } catch (e: ArrayIndexOutOfBoundsException) {
                                 game.running = false
                             }
-
                 }
 
 
@@ -180,6 +178,7 @@ class BoardActivity : AppCompatActivity() {
     private fun letRotation(obj : Part){
 
         while (obj.dot1.y < obj.minSpace || obj.dot1.y > (game.COLUNA - 1) - obj.minSpace){
+
                 if (obj.dot1.y < obj.minSpace) {
                     obj.right()
                 }
@@ -201,7 +200,6 @@ class BoardActivity : AppCompatActivity() {
             obj.dot2 = aux2
             obj.dot3 = aux3
             obj.dot4 = aux4
-            return
         }
 
 
@@ -225,23 +223,14 @@ class BoardActivity : AppCompatActivity() {
     limpa uma linha interia caso ela estja completa por '1'
     */
     private fun makePoint(){
-        var cont: Int
-
         for (i in 0 until game.LINHA){
-            cont = 0
-            for (j in 0 until game.COLUNA){
 
-                if(game.board[i][j] == 1){
-                    cont++
-                }
-                if(cont == (game.COLUNA)){
-                    game.incrementScore()
-                    downBoard(i)
-                }
+            if(game.board[i].sum() == 12){
+                game.incrementScore()
+                downBoard(i)
             }
         }
     }
-
     private fun downBoard(linha: Int) {
         for(i in linha downTo 1){
             game.board[i] = game.board[i -1]
