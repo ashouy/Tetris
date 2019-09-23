@@ -1,5 +1,6 @@
 package com.exemple.tetris.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -44,11 +45,16 @@ class BoardActivity : AppCompatActivity() {
         Thread{
 
             while(game.running){
-                Thread.sleep(game.level[2])
+                Thread.sleep(game.level[1])
                 runOnUiThread {
 
                             pontuacao.text = game.score.toString()
+
                             reDrawBoard()
+
+                            if(gameOver() && colision(p)){
+                                result()
+                            }
 
                             btRotate.setOnClickListener {
                             letRotation(p)
@@ -87,6 +93,22 @@ class BoardActivity : AppCompatActivity() {
 
             }
         }.start()
+    }
+
+    private fun result() {
+        var i = Intent(this,Result::class.java)
+        var b = Bundle()
+        b.putString("SCORE",game.score.toString())
+        i.putExtras(b)
+        game.running =false
+        startActivity(i)
+        finish()
+
+    }
+
+    private fun gameOver(): Boolean {
+        return     p.dot1.x == 0 || p.dot2.x== 0
+                || p.dot3.x == 0 || p.dot4.x== 0
     }
 
     /*
@@ -192,16 +214,18 @@ class BoardActivity : AppCompatActivity() {
                 }
         }
 
-        if(obj.dot1.x < game.COLUNA - obj.minSpace) {
+        if(obj.dot1.x < game.LINHA - obj.minSpace) {
+
             obj.rotate()
 
             if (game.board[obj.dot1.x][obj.dot1.y] == 1 || game.board[obj.dot2.x][obj.dot2.y] == 1 ||
                 game.board[obj.dot3.x][obj.dot3.y] == 1 || game.board[obj.dot4.x][obj.dot4.y] == 1
             ) {
-                obj.dot1 = aux1
-                obj.dot2 = aux2
-                obj.dot3 = aux3
-                obj.dot4 = aux4
+                obj.dot1 = Dot(aux1.x,aux1.y)
+                obj.dot2 = Dot(aux2.x,aux2.y)
+                obj.dot3 = Dot(aux3.x,aux3.y)
+                obj.dot4 = Dot(aux4.x,aux4.y)
+
             }
         }
     }
