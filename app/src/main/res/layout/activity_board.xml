@@ -22,17 +22,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="Pontos" />
+            android:text="Score:"
+            android:textSize="30sp"
+            android:fontFamily="casual"
+            android:textColor="@android:color/black"/>
         <TextView
-            android:id="@+id/pontuacao"
+            android:id="@+id/score"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:fontFamily="casual"
+            android:textColor="@android:color/black"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text="Próxima" />
+            android:text="Next"
+            android:textSize="30sp"
+            android:fontFamily="casual"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="25sp"/>
 
 
     </LinearLayout>

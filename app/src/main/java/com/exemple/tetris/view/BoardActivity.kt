@@ -48,7 +48,7 @@ class BoardActivity : AppCompatActivity() {
                 Thread.sleep(game.level[1])
                 runOnUiThread {
 
-                            pontuacao.text = game.score.toString()
+                            score.text = game.score.toString()
 
                             reDrawBoard()
 
@@ -96,11 +96,8 @@ class BoardActivity : AppCompatActivity() {
     }
 
     private fun result() {
-        var i = Intent(this,Result::class.java)
-        var b = Bundle()
-        b.putString("SCORE",game.score.toString())
-        i.putExtras(b)
         game.running =false
+        var i = Intent(this,Result::class.java)
         startActivity(i)
         finish()
 
