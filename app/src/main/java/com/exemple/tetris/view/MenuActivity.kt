@@ -5,12 +5,13 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.tetris.R
 import kotlinx.android.synthetic.main.activity_menu.*
 
 class MenuActivity : AppCompatActivity() {
-    val COD = 0
-    val PREFS = "prefs_file"
+    val COD = 5
+    val PREFS = "prefs_file2"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +30,6 @@ class MenuActivity : AppCompatActivity() {
 
         configGame.setOnClickListener {
             var i = Intent(this,Config::class.java)
-
             startActivityForResult(i,COD)
         }
     }

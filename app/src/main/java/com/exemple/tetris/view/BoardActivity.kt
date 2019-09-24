@@ -78,24 +78,29 @@ class BoardActivity : AppCompatActivity() {
                                 p.right()
                             }
                             speed.setOnClickListener {
+                                if(!baseBoardColision(p) && !colision(p))
+                                    p.down()
                             }
 
                             if(!baseBoardColision(p) && !colision(p)){
                                 p.down()
+                                
+                                try {
+                                    game.boardView[p.dot1.x][p.dot1.y]!!.setImageResource(R.drawable.gray)
+                                    game.boardView[p.dot2.x][p.dot2.y]!!.setImageResource(R.drawable.gray)
+                                    game.boardView[p.dot3.x][p.dot3.y]!!.setImageResource(R.drawable.gray)
+                                    game.boardView[p.dot4.x][p.dot4.y]!!.setImageResource(R.drawable.gray)
+                                } catch (e: ArrayIndexOutOfBoundsException) {
+                                    game.running = false
+                                }
+
                             }else{
                                 updateBoard(p)
                                 makePoint()
                                 p = newPart()
                             }
 
-                            try {
-                                game.boardView[p.dot1.x][p.dot1.y]!!.setImageResource(R.drawable.gray)
-                                game.boardView[p.dot2.x][p.dot2.y]!!.setImageResource(R.drawable.gray)
-                                game.boardView[p.dot3.x][p.dot3.y]!!.setImageResource(R.drawable.gray)
-                                game.boardView[p.dot4.x][p.dot4.y]!!.setImageResource(R.drawable.gray)
-                            } catch (e: ArrayIndexOutOfBoundsException) {
-                                game.running = false
-                            }
+
                 }
 
 
@@ -105,7 +110,11 @@ class BoardActivity : AppCompatActivity() {
 
     private fun result() {
         game.running =false
+        var b = Bundle()
+        b.putInt("DIFICULT",level)
+        b.putInt("SCORE",game.score)
         var i = Intent(this,Result::class.java)
+        i.putExtras(b)
         startActivity(i)
         finish()
 

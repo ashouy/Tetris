@@ -54,16 +54,16 @@
 
         <TextView
             android:id="@+id/record"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="top|center"
-            android:text="Record:"
-            android:textSize="40sp"
-            android:layout_marginVertical="20sp"
             android:layout_row="1"
             android:layout_column="0"
+            android:layout_gravity="top|center"
+            android:layout_marginVertical="20sp"
             android:fontFamily="casual"
-            android:textColor="@android:color/black"/>
+            android:text="Record:"
+            android:textColor="@android:color/black"
+            android:textSize="40sp" />
         <TextView
             android:id="@+id/recordText"
             android:layout_width="wrap_content"
@@ -80,13 +80,15 @@
 
     </GridLayout>
     <TextView
+        android:id="@+id/newRecord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Novo Record!"
         android:textSize="40sp"
         android:layout_marginTop="15sp"
         android:fontFamily="casual"
-        android:textColor="@android:color/holo_orange_light"/>
+        android:textColor="@android:color/holo_orange_light"
+        android:visibility="invisible"/>
     <TextView
         android:layout_marginBottom="20sp"
         android:layout_marginTop="60sp"
