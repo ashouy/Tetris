@@ -32,11 +32,13 @@
         android:textColor="@android:color/black"
         android:layout_marginBottom="15sp"/>
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginBottom="20sp">
         <RadioButton
+            android:id="@+id/easy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Fácil"
@@ -44,13 +46,16 @@
             android:fontFamily="casual"
             android:textSize="18sp"/>
         <RadioButton
+            android:id="@+id/medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Médio"
             android:textColor="@android:color/black"
             android:fontFamily="casual"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:checked="true"/>
         <RadioButton
+            android:id="@+id/hard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Difícil"

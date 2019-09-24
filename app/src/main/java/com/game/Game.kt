@@ -1,10 +1,11 @@
 package com.game
 
 import android.widget.ImageView
+import androidx.lifecycle.ViewModel
 
 
-class Game(val LINHA: Int = 22,val COLUNA: Int = 12 ) {
-    var level = longArrayOf(150, 300, 450)
+class Game(val LINHA: Int = 22,val COLUNA: Int = 12 ) : ViewModel(){
+    var level = longArrayOf(450, 300, 150)
 
     var running = true
 

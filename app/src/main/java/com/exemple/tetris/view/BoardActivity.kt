@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.ImageView
+import androidx.lifecycle.ViewModelProviders
 import com.example.tetris.R
 import com.example.tetris.part.*
 import com.game.Game
@@ -13,13 +14,19 @@ import kotlin.random.Random
 
 class BoardActivity : AppCompatActivity() {
 
+    var level:Int = 2
 
-    var game = Game()
+    val game :Game by lazy {
+        ViewModelProviders.of(this)[Game::class.java]
+    }
 
-    var p = newPart()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_board)
+
+        var params = intent.extras
+        level = params!!.getInt("DIFICULT")
 
         gridboard.rowCount = game.LINHA
         gridboard.columnCount = game.COLUNA
@@ -42,17 +49,18 @@ class BoardActivity : AppCompatActivity() {
 
 
     private fun gameRun() {
+        var p = newPart()
         Thread{
 
             while(game.running){
-                Thread.sleep(game.level[1])
+                Thread.sleep(game.level[level])
                 runOnUiThread {
 
                             score.text = game.score.toString()
 
                             reDrawBoard()
 
-                            if(gameOver() && colision(p)){
+                            if(gameOver(p) && colision(p)){
                                 result()
                             }
 
@@ -103,9 +111,9 @@ class BoardActivity : AppCompatActivity() {
 
     }
 
-    private fun gameOver(): Boolean {
-        return     p.dot1.x == 0 || p.dot2.x== 0
-                || p.dot3.x == 0 || p.dot4.x== 0
+    private fun gameOver(obj: Part): Boolean {
+        return     obj.dot1.x == 0 || obj.dot2.x== 0
+                || obj.dot3.x == 0 || obj.dot4.x== 0
     }
 
     /*

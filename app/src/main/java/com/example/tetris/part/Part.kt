@@ -1,6 +1,8 @@
 package com.example.tetris.part
 
-abstract class Part( var x:Int, var y:Int){
+import androidx.lifecycle.ViewModel
+
+abstract class Part( var x:Int, var y:Int): ViewModel(){
     var minSpace: Int = 0
 
     constructor(x: Int,y: Int,minSpace: Int):this(x,y){
