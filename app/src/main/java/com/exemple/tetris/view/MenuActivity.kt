@@ -12,9 +12,14 @@ class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
-
+      var i :Intent
         newGame.setOnClickListener {
-            var i = Intent(this,BoardActivity::class.java)
+            i = Intent(this,BoardActivity::class.java)
+            startActivity(i)
+            finish()
+        }
+        configGame.setOnClickListener {
+            i = Intent(this,Config::class.java)
             startActivity(i)
             finish()
         }
