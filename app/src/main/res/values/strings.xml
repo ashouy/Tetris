@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">Tetris</string>
+    <string name="app_name" translatable="false">Tetris</string>
+    <string name="pontos">Pontos:</string>
+    <string name="pr_x">Próx:</string>
+    <string name="dificuldade">DIFICULDADE</string>
+    <string name="f_cil">Fácil</string>
+    <string name="m_dio">Médio</string>
+    <string name="dif_cil">Difícil</string>
+    <string name="voltar">Voltar</string>
+    <string name="continuar">Continuar</string>
+    <string name="configura_es">Configurações</string>
+    <string name="todo" translatable="false">TODO</string>
+    <string name="game_over">Fim de Jogo</string>
+    <string name="score">Pontuação:</string>
+    <string name="record">Melhor</string>
+    <string name="novo_record">Novo Record!</string>
+    <string name="tetris" translatable="false">TETRIS</string>
+    <string name="novo_jogo">Novo Jogo</string>
+    <string name="sair">Sair</string>
 </resources>

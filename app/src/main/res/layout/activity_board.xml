@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="Score:"
+            android:text="@string/pontos"
             android:textSize="30sp"
             android:fontFamily="casual"
             android:textColor="@android:color/black"/>
@@ -35,10 +34,11 @@
             android:textColor="@android:color/black"/>
 
         <TextView
+            android:id="@+id/prox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text="Next"
+            android:text="@string/pr_x"
             android:textSize="30sp"
             android:fontFamily="casual"
             android:textColor="@android:color/black"
@@ -58,10 +58,10 @@
 
         <ImageButton
             android:id="@+id/pause"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
+            android:layout_width="68sp"
+            android:layout_height="68sp"
             android:layout_gravity="left"
-            android:src="@drawable/pause"
+            android:src="@drawable/pause64"
             android:layout_marginLeft="5sp"
             android:backgroundTint="@android:color/transparent"/>
 
@@ -86,35 +86,35 @@
 
         <ImageButton
             android:id="@+id/btLeft"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="68sp"
+            android:layout_height="68sp"
             android:layout_gravity="left"
-            android:src="@drawable/left"
+            android:src="@drawable/left64"
             android:backgroundTint="@android:color/transparent"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/speed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="68sp"
+            android:layout_height="68sp"
             android:layout_gravity="bottom"
-            android:text="TurboLento"
-            android:textColor="#448BFA"
-            android:backgroundTint="#D4E1F4"/>
+            android:src="@drawable/down64"
+            android:background="@android:color/transparent"
+            />
 
         <ImageButton
             android:id="@+id/btRight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="68sp"
+            android:layout_height="68sp"
             android:layout_gravity="right"
-            android:src="@drawable/right"
+            android:src="@drawable/right64"
             android:backgroundTint="@android:color/transparent"/>
 
         <ImageButton
             android:id="@+id/btRotate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="68sp"
+            android:layout_height="68sp"
             android:layout_gravity="right"
-            android:src="@drawable/rotate"
+            android:src="@drawable/rotate64"
             android:backgroundTint="@android:color/transparent"/>
 
     </LinearLayout>

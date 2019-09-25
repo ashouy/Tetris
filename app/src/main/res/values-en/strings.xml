@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="configura_es">Settings</string>
+    <string name="continuar">Continue</string>
+    <string name="dif_cil">Hard</string>
+    <string name="dificuldade">DIFICULT</string>
+    <string name="f_cil">Easy</string>
+    <string name="game_over">Game Over</string>
+    <string name="m_dio">Normal</string>
+    <string name="novo_jogo">New Game</string>
+    <string name="novo_record">New Record!</string>
+    <string name="pontos">Score:</string>
+    <string name="pr_x">Next:</string>
+    <string name="record">Record</string>
+    <string name="sair">Exit</string>
+    <string name="score">Score</string>
+    <string name="voltar">Back</string>
+</resources>

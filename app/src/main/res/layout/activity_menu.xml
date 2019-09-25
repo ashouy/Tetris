@@ -17,7 +17,7 @@
         android:textSize="75sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TETRIS"
+        android:text="@string/tetris"
         android:fontFamily="casual"
         android:textColor="@android:color/holo_red_light"/>
 
@@ -25,7 +25,7 @@
         android:id="@+id/newGame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Novo Jogo"
+            android:text="@string/novo_jogo"
             android:textSize="25sp"
             android:background="@android:color/transparent"
             android:fontFamily="casual"
@@ -35,7 +35,7 @@
         android:id="@+id/resumeGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Continuar"
+        android:text="@string/continuar"
         android:textSize="25sp"
         android:background="@android:color/transparent"
         android:fontFamily="casual"
@@ -45,7 +45,7 @@
         android:id="@+id/configGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Configurações"
+        android:text="@string/configura_es"
         android:textSize="25sp"
         android:background="@android:color/transparent"
         android:fontFamily="casual"
@@ -54,7 +54,8 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/tetris256"/>
+        android:src="@drawable/tetris256"
+        android:contentDescription="@string/todo" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

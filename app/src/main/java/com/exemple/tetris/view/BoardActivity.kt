@@ -84,7 +84,7 @@ class BoardActivity : AppCompatActivity() {
 
                             if(!baseBoardColision(p) && !colision(p)){
                                 p.down()
-                                
+
                                 try {
                                     game.boardView[p.dot1.x][p.dot1.y]!!.setImageResource(R.drawable.gray)
                                     game.boardView[p.dot2.x][p.dot2.y]!!.setImageResource(R.drawable.gray)

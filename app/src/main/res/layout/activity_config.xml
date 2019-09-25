@@ -17,7 +17,7 @@
         android:textSize="75sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TETRIS"
+        android:text="@string/tetris"
         android:fontFamily="casual"
         android:textColor="@android:color/holo_red_light"/>
 
@@ -25,7 +25,7 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DIFICULDADE"
+        android:text="@string/dificuldade"
         android:textSize="25sp"
         android:background="@android:color/transparent"
         android:fontFamily="casual"
@@ -41,7 +41,7 @@
             android:id="@+id/easy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fácil"
+            android:text="@string/f_cil"
             android:textColor="@android:color/black"
             android:fontFamily="casual"
             android:textSize="18sp"/>
@@ -49,7 +49,7 @@
             android:id="@+id/medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Médio"
+            android:text="@string/m_dio"
             android:textColor="@android:color/black"
             android:fontFamily="casual"
             android:textSize="18sp"
@@ -58,7 +58,7 @@
             android:id="@+id/hard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Difícil"
+            android:text="@string/dif_cil"
             android:textColor="@android:color/black"
             android:fontFamily="casual"
             android:textSize="18sp"/>
@@ -69,7 +69,7 @@
         android:id="@+id/backConfig"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Voltar"
+        android:text="@string/voltar"
         android:textSize="25sp"
         android:background="@android:color/transparent"
         android:fontFamily="casual"
@@ -78,7 +78,8 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/tetris256"/>
+        android:src="@drawable/tetris256"
+        android:contentDescription="@string/todo" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
