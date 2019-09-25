@@ -39,6 +39,7 @@ class MenuActivity : AppCompatActivity() {
         var settings = getSharedPreferences(PREFS,Context.MODE_PRIVATE)
         var editor = settings.edit()
         val params = data?.extras
+
         when(resultCode){
                 Activity.RESULT_OK->{
                     editor.clear()

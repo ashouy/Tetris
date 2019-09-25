@@ -82,6 +82,8 @@ class BoardActivity : AppCompatActivity() {
                                     p.down()
                             }
 
+
+
                             if(!baseBoardColision(p) && !colision(p)){
                                 p.down()
 
@@ -97,9 +99,17 @@ class BoardActivity : AppCompatActivity() {
                             }else{
                                 updateBoard(p)
                                 makePoint()
+                                try {
+                                    game.boardView[p.dot1.x][p.dot1.y]!!.setImageResource(R.drawable.gray)
+                                    game.boardView[p.dot2.x][p.dot2.y]!!.setImageResource(R.drawable.gray)
+                                    game.boardView[p.dot3.x][p.dot3.y]!!.setImageResource(R.drawable.gray)
+                                    game.boardView[p.dot4.x][p.dot4.y]!!.setImageResource(R.drawable.gray)
+                                } catch (e: ArrayIndexOutOfBoundsException) {
+                                    game.running = false
+                                }
+
                                 p = newPart()
                             }
-
 
                 }
 

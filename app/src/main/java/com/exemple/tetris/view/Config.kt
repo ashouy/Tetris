@@ -31,6 +31,7 @@ class Config : AppCompatActivity() {
             }
 
             Toast.makeText(this,"${b.getInt("DIFICULT")}",Toast.LENGTH_SHORT).show()
+
             var i = Intent(this,MenuActivity::class.java)
             i.putExtras(b)
             setResult(Activity.RESULT_OK,i)
