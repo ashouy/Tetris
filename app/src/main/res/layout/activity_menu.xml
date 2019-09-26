@@ -40,7 +40,8 @@
         android:background="@android:color/transparent"
         android:fontFamily="casual"
         android:textColor="@android:color/black"
-        android:layout_marginBottom="15sp"/>
+        android:layout_marginBottom="15sp"
+        />
     <Button
         android:id="@+id/configGame"
         android:layout_width="wrap_content"

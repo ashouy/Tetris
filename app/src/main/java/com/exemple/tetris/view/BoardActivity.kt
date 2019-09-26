@@ -1,5 +1,6 @@
 package com.exemple.tetris.view
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,7 +20,8 @@ class BoardActivity : AppCompatActivity() {
     val game :Game by lazy {
         ViewModelProviders.of(this)[Game::class.java]
     }
-
+    var p = newPart()
+    private var continu = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +33,11 @@ class BoardActivity : AppCompatActivity() {
         gridboard.rowCount = game.LINHA
         gridboard.columnCount = game.COLUNA
 
+
         val inflater = LayoutInflater.from(this)
+
+        game.running =true
+        var continu = false
 
         for( i in 0 until game.LINHA){
             for(j in 0 until game.COLUNA){
@@ -39,6 +45,9 @@ class BoardActivity : AppCompatActivity() {
                 gridboard.addView(game.boardView[i][j])
             }
         }
+
+
+
 
 
         gameRun()
@@ -49,7 +58,8 @@ class BoardActivity : AppCompatActivity() {
 
 
     private fun gameRun() {
-        var p = newPart()
+        continu = false
+
         Thread{
 
             while(game.running){
@@ -62,6 +72,10 @@ class BoardActivity : AppCompatActivity() {
 
                             if(gameOver(p) && colision(p)){
                                 result()
+                            }
+
+                            pause.setOnClickListener{
+                                pause()
                             }
 
                             btRotate.setOnClickListener {
@@ -117,9 +131,19 @@ class BoardActivity : AppCompatActivity() {
             }
         }.start()
     }
+    private fun pause(){
+        game.running = false
+        var i = Intent(this,MenuActivity::class.java)
+        var b = Bundle()
+        continu = true
+        b.putBoolean("CONTINUE", continu)
+        i.putExtras(b)
+        startActivity(i)
+    }
 
     private fun result() {
         game.running =false
+        continu = false
         var b = Bundle()
         b.putInt("DIFICULT",level)
         b.putInt("SCORE",game.score)
@@ -257,6 +281,9 @@ class BoardActivity : AppCompatActivity() {
     /*
     redenha o board
      */
+    private fun reDrawNext(){
+
+    }
     private fun reDrawBoard(){
         for (i in 0 until game.LINHA) {
             for (j in 0 until game.COLUNA) {
@@ -280,9 +307,21 @@ class BoardActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun downBoard(linha: Int) {
         for(i in linha downTo 1){
             game.board[i] = game.board[i -1]
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        game.running = false
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        game.running = true
+        gameRun()
     }
 }

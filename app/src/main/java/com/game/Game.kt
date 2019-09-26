@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class Game(val LINHA: Int = 22,val COLUNA: Int = 12 ) : ViewModel(){
     var level = longArrayOf(450, 300, 150)
 
-    var running = true
+    var running = false
 
     var board = Array(LINHA) {
         Array(COLUNA){0}
